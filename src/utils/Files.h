@@ -16,6 +16,6 @@
 
 void read_file(char *filename, char output[][MAX_FILE_LINE_LENGTH], int row_count);
 
-void split_str(char *data, char delimiter, char *output);
+void split_str(char *data, char delimiter, char output[][MAX_FILE_LINE_LENGTH]);
 
 #endif //TASK1_FILES_H

@@ -13,7 +13,7 @@
 
 struct Population {
     int id;
-    char *description;
+    char description;
     int start;
     int ends;
 };

@@ -25,12 +25,10 @@ void read_file(
 
     while (fgets(reader, sizeof(reader), fp)) {
         for (int i = 0; i <= sizeof(reader); ++i) {
-            if (counter >= row_count) {
+            if (counter >= row_count)
                 break;
-            }
-            if (reader[i] != '\n') {
+            if (reader[i] != '\n')
                 output[counter][i] = reader[i];
-            }
         }
         ++counter;
     }
@@ -38,12 +36,18 @@ void read_file(
     fclose(fp);
 }
 
-void split_str(char *data, char delimiter, char *output) {
+void split_str(char *data, char delimiter, char output[][MAX_FILE_LINE_LENGTH]) {
     char *token;
-
-    printf("\nSplitting sentence %s\n", data);
+    size_t initial_size = strlen(data);
+    int counter = 0;
 
     while ((token = strtok_s(data, &delimiter, &data))) {
-        printf("%s\n", token);
+        for (int i = 0; i <= (int) initial_size; ++i) {
+            if (token[i] == '\0')
+                break;
+            if (token[i] != '\n')
+                output[counter][i] = token[i];
+        }
+        ++counter;
     }
 }
