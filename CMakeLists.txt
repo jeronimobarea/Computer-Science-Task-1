@@ -10,9 +10,9 @@ add_executable(Task1 main.c
         src/population/Population.h
         src/patient/Patient.c
         src/patient/Patient.h
-        src/utils/Menu.c
-        src/utils/Menu.h
+        src/menu/Menu.c
+        src/menu/Menu.h
         src/utils/Files.c
         src/utils/Files.h
         src/utils/Setup.c
-        src/utils/Setup.h)
+        src/utils/Setup.h src/utils/Errors.h src/utils/Debug.h)

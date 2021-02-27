@@ -1,8 +1,5 @@
-#include <stdio.h>
-
 #include "src/utils/Setup.h"
-#include "src/utils/Menu.h"
-#include "src/utils/Files.h"
+#include "src/menu/Menu.h"
 
 int main() {
     setup();

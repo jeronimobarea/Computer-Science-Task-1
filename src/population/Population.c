@@ -6,17 +6,13 @@
 #include "../utils/Files.h"
 
 
-void create_populations(struct Population *populations) {
-    char output[MAX_POPULATIONS];
-    read_file("C:\\Users\\jeron\\CLionProjects\\Task1\\datasets\\populations.txt", output);
+void load_populations(struct Population *populations) {
+    char output[MAX_POPULATIONS][50];
+    read_file(POPULATION_DATASET_PATH, output, MAX_POPULATIONS);
 
-    for (int i = 0; i < MAX_POPULATIONS; i += 2) {
+    for (int i = 0; i < MAX_POPULATIONS; ++i) {
         char data[3];
-        split_str(&output[i], " ", data);
-        printf("XD");
-        for (int j = 0; j < 3; ++j) {
-            printf("%s", &data[i]);
-        }
+        split_str(output[i], '\0', data);
         struct Population population = {
                 .id = i,
                 .description = "",

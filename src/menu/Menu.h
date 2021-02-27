@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include "../utils/Errors.h"
 
 struct MenuSelection {
     int selected;

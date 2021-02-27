@@ -4,32 +4,46 @@
 
 #include "Files.h"
 
-void read_file(char *filename, char *output) {
+void read_file(
+        char *filename,
+        char output[][MAX_FILE_LINE_LENGTH],
+        int row_count
+) {
     FILE *fp;
 
     fopen_s(&fp, filename, "r");
 
     if (fp == NULL) {
-        perror("[Error] Could not open the file");
+        perror(FILE_ERROR);
         exit(1);
     }
 
-    printf("[Info] Loading data from file: %s", filename);
-    while (fgets(output, sizeof(output), fp)) {
-        //printf("%s", output);
+    printf(DEBUG_FILE, filename);
+
+    char reader[MAX_FILE_LINE_LENGTH];
+    int counter = 0;
+
+    while (fgets(reader, sizeof(reader), fp)) {
+        for (int i = 0; i <= sizeof(reader); ++i) {
+            if (counter >= row_count) {
+                break;
+            }
+            if (reader[i] != '\n') {
+                output[counter][i] = reader[i];
+            }
+        }
+        ++counter;
     }
 
     fclose(fp);
 }
 
-void split_str(char *data, const char *delimiter, char *output) {
-    int last_empty_index = 0;
-    for (int i = 0; i < (int) sizeof(data); ++i) {
-        if (data[i] == '\0') {
-            for (int j = last_empty_index; j < i; ++j) {
-                output[last_empty_index] += data[j];
-            }
-            last_empty_index = i;
-        }
+void split_str(char *data, char delimiter, char *output) {
+    char *token;
+
+    printf("\nSplitting sentence %s\n", data);
+
+    while ((token = strtok_s(data, &delimiter, &data))) {
+        printf("%s\n", token);
     }
 }

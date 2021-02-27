@@ -13,5 +13,5 @@ void setup() {
     setup_vaccines(vaccines);
 
     struct Population populations[MAX_POPULATIONS];
-    create_populations(populations);
+    load_populations(populations);
 }

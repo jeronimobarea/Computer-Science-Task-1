@@ -20,7 +20,7 @@ struct MenuSelection menu() {
 
     selection.is_valid = selection_is_valid(selection.selected);
 
-    while (!selection.is_valid) {
+    if (!selection.is_valid) {
         selection = menu();
     }
     return selection;
@@ -35,4 +35,23 @@ bool selection_is_valid(int selection) {
 
 void process_selection(int selection) {
     printf("Selected: %d", selection);
+    switch (selection) {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        default:
+            perror(MENU_SELECTION_ERROR);
+            break;
+    }
 }

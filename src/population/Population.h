@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 
-
+#define POPULATION_DATASET_PATH "C:\\Users\\jeron\\CLionProjects\\Task1\\datasets\\static\\populations.txt"
 #define MAX_POPULATIONS 10
 
 struct Population {
@@ -18,6 +18,6 @@ struct Population {
     int ends;
 };
 
-void create_populations(struct Population *populations);
+void load_populations(struct Population *populations);
 
 #endif //TASK1_POPULATION_H
