@@ -1,0 +1,6 @@
+kids 6 14
+teens 14 18
+adults_g1 19 30
+adults_g2 30 55
+adults_g3 55 65
+retired 65 999

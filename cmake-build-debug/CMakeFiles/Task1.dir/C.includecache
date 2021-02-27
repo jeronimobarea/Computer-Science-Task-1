@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/jeron/CLionProjects/Task1/src/utils/Menu.c
+Menu.h
+C:/Users/jeron/CLionProjects/Task1/src/utils/Menu.h
+
+C:/Users/jeron/CLionProjects/Task1/src/utils/Menu.h
+stdio.h
+-
+stdbool.h
+-
+
