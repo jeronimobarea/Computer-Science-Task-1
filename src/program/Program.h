@@ -10,9 +10,9 @@
 #include "../patient/Patient.h"
 
 struct ProgramData {
-    struct Population *populations;
-    struct Vaccine *vaccines;
-    struct Patient *patients;
+    struct Population populations[MAX_POPULATIONS];
+    struct Vaccine vaccines[MAX_VACCINES];
+    struct Patient patients[MAX_PATIENTS];
 };
 
 #endif //TASK1_PROGRAM_H

@@ -33,8 +33,7 @@ void load_patients(struct Patient *pattients) {
 }
 
 char **load_patients_vaccines(char *patient_dni) {
-    char *filename = strcat(patient_dni, ".txt");
-    char *file_path = strcat(PATIENT_VACCINES_PATH, filename);
-
-    return read_file(file_path);
+    char buf[256];
+    snprintf(buf, sizeof buf, "%s%s%s", PATIENT_VACCINES_PATH, patient_dni, ".txt");
+    return read_file(buf);
 }

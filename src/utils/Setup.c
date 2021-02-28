@@ -5,8 +5,6 @@
 #include "Setup.h"
 
 #include "../program/Program.h"
-#include "../population/Population.h"
-#include "../patient/Patient.h"
 
 struct ProgramData setup() {
     struct Population populations[MAX_POPULATIONS];
@@ -18,12 +16,12 @@ struct ProgramData setup() {
     struct Patient patients[MAX_PATIENTS];
     load_patients(patients);
 
-    printf("\n\nEverything loaded...\n\n");
+    printf("\n\nEverything loaded...\n");
 
     struct ProgramData data = {
-            .populations = populations,
-            .vaccines = vaccines,
-            .patients = patients,
+            .populations = *populations,
+            .vaccines = *vaccines,
+            .patients = *patients,
     };
 
     return data;

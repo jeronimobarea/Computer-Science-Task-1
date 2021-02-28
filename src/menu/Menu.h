@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "../utils/Errors.h"
+#include "../program/Program.h"
 
 struct MenuSelection {
     int selected;
@@ -18,20 +19,8 @@ struct MenuSelection menu();
 
 bool selection_is_valid(int selection);
 
-void process_selection(int selection);
+void process_selection(int selection, struct ProgramData data);
 
-void insert_patient();
 
-void delete_patient();
-
-void insert_inoculation();
-
-void delete_inoculation();
-
-void save_state();
-
-void load_state();
-
-void list_vaccination_data();
 
 #endif //TASK1_MENU_H

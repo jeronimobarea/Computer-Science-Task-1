@@ -3,11 +3,12 @@
 //
 
 #include "Menu.h"
+#include "Actions.h"
 
 struct MenuSelection menu() {
     struct MenuSelection selection;
     printf(
-            "1) Dar de alta (paciente)\n"
+            "\n1) Dar de alta (paciente)\n"
             "2) Dar de baja (paciente)\n"
             "3) Dar de alta (inoculacion)\n"
             "4) Eliminar inoculaciones\n"
@@ -33,61 +34,32 @@ bool selection_is_valid(int selection) {
     return true;
 }
 
-void process_selection(int selection) {
+void process_selection(int selection, struct ProgramData data) {
     printf("Selected: %d", selection);
     switch (selection) {
         case 1:
-            insert_patient();
+            insert_patient_action();
             break;
         case 2:
-            delete_patient();
+            delete_patient_action();
             break;
         case 3:
-            insert_inoculation();
+            insert_inoculation_action();
             break;
         case 4:
-            delete_inoculation();
+            delete_inoculation_action();
             break;
         case 5:
-            save_state();
+            save_state_action();
             break;
         case 6:
-            load_state();
+            load_state_action();
             break;
         case 7:
-            list_vaccination_data();
+            list_vaccination_data_action();
             break;
         default:
             perror(MENU_SELECTION_ERROR);
             break;
     }
-}
-
-void insert_patient() {
-}
-
-void delete_patient() {
-    char *dni;
-    printf("DNI del paciente: ");
-    scanf_s("%s", &dni);
-}
-
-void insert_inoculation() {
-
-}
-
-void delete_inoculation() {
-
-}
-
-void save_state() {
-
-}
-
-void load_state() {
-
-}
-
-void list_vaccination_data() {
-
 }

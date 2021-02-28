@@ -20,4 +20,4 @@ add_executable(Task1 main.c
         src/utils/Debug.h
         src/utils/Validators.c
         src/utils/Validators.h
-        src/program/Program.h)
+        src/program/Program.h src/menu/Actions.c src/menu/Actions.h)
