@@ -4,6 +4,7 @@
 
 #include "Vaccine.h"
 #include "../utils/Files.h"
+#include "../utils/Validators.h"
 
 void setup_vaccines(struct Vaccine *vaccines) {
     char **output = read_file(VACCINES_DATASET_PATH);
@@ -14,6 +15,9 @@ void setup_vaccines(struct Vaccine *vaccines) {
         tokens = str_split(*(output + i), VACCINE_DELIMITER);
 
         if (tokens) {
+            if (!batch_validator(*(tokens + 5))
+                || !inoculation_id_validator(*(tokens + 0)))
+                continue;
             struct Vaccine vaccine = {
                     .id = *(tokens + 0),
                     .serial_number = *(tokens + 1),

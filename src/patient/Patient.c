@@ -4,6 +4,7 @@
 
 #include "Patient.h"
 #include "../utils/Files.h"
+#include "../utils/Validators.h"
 
 void load_patients(struct Patient *patients, char *file_path) {
     char **output = read_file(file_path);
@@ -14,6 +15,13 @@ void load_patients(struct Patient *patients, char *file_path) {
         tokens = str_split(*(output + i), PATIENT_DELIMITER);
 
         if (tokens) {
+            if (!dni_validator(*(tokens + 0))
+                || !name_validator(*(tokens + 1))
+                || !surname_validator(*(tokens + 2))
+                || !phone_number_validator(*(tokens + 3))
+                || !birth_date_validator(*(tokens + 5)))
+                continue;
+
             struct Patient patient = {
                     .DNI = *(tokens + 0),
                     .name = *(tokens + 1),

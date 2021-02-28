@@ -5,7 +5,6 @@
 #include "Population.h"
 #include "../utils/Files.h"
 
-
 void load_populations(struct Population *populations) {
     char **output = read_file(POPULATION_DATASET_PATH);
 
