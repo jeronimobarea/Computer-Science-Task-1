@@ -14,24 +14,46 @@ void save_current_state(struct ProgramData data) {
     for (int i = 0; i < sizeof(data.populations); ++i) {
         struct Population population = data.populations[i];
         char buf[MAX_FILE_LINE_LENGTH];
-        snprintf(buf, sizeof buf, "%d %s %d %d", population.id, population.description, population.start,
-                 population.ends);
+        snprintf(
+                buf,
+                sizeof buf,
+                "%d %s %d %d",
+                population.id,
+                population.description,
+                population.start,
+                population.ends
+        );
         *(processed_populations + i) = buf;
     }
 
     for (int i = 0; i < sizeof(data.vaccines); ++i) {
         struct Vaccine vaccine = data.vaccines[i];
         char buf[MAX_FILE_LINE_LENGTH];
-        snprintf(buf, sizeof buf, "%s?%s?%s?%s?%s", vaccine.id, vaccine.serial_number, vaccine.company,
-                 vaccine.aproval_date, vaccine.batch);
+        snprintf(
+                buf,
+                sizeof buf,
+                "%s?%s?%s?%s?%s",
+                vaccine.id,
+                vaccine.serial_number,
+                vaccine.company,
+                vaccine.aproval_date,
+                vaccine.batch
+        );
         *(processed_vaccines + i) = buf;
     }
 
     for (int i = 0; i < sizeof(data.patients); ++i) {
         struct Patient patient = data.patients[i];
         char buf[MAX_FILE_LINE_LENGTH];
-        snprintf(buf, sizeof buf, "%s?%s?%s?%s?%s?%d", patient.DNI, patient.name, patient.surname, patient.phone_number,
-                 patient.date_of_birth, patient.population_id);
+        snprintf(
+                buf, sizeof buf,
+                "%s?%s?%s?%s?%s?%d",
+                patient.DNI, patient.name,
+                patient.surname,
+                patient.phone_number,
+                patient.date_of_birth,
+                patient.population_id
+        );
         *(processed_patients + i) = buf;
     }
 

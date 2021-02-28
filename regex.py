@@ -1,9 +1,8 @@
 import re
+import sys
 
-data = str(input())
-print(data)
-
-source, pattern = data.split(" ")
+pattern = sys.argv[0]
+source = sys.argv[1]
 
 res = re.search(pattern, source)
 
