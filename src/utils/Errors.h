@@ -1,7 +1,3 @@
-//
-// Created by jeron on 27/02/2021.
-//
-
 #ifndef TASK1_ERRORS_H
 #define TASK1_ERRORS_H
 

@@ -1,10 +1,5 @@
-//
-// Created by jeron on 27/02/2021.
-//
-
 #include "Patient.h"
 #include "../utils/Files.h"
-#include "../utils/Validators.h"
 
 void load_patients(struct Patient *patients, char *file_path) {
     char **output = read_file(file_path);
