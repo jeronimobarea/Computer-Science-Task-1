@@ -15,9 +15,9 @@ void setup_vaccines(struct Vaccine *vaccines) {
         tokens = str_split(*(output + i), VACCINE_DELIMITER);
 
         if (tokens) {
-            if (!batch_validator(*(tokens + 5))
+            /*if (!batch_validator(*(tokens + 5))
                 || !inoculation_id_validator(*(tokens + 0)))
-                continue;
+                continue;*/
             struct Vaccine vaccine = {
                     .id = *(tokens + 0),
                     .serial_number = *(tokens + 1),

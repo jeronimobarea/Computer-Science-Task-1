@@ -7,6 +7,8 @@
 
 #include <stdbool.h>
 
+#define SCRIPT_PATH "C:\\Users\\jeron\\CLionProjects\\Task1\\regex.py"
+
 #define DNI_PATTERN "^[0-9]{8,8}[A-Za-z]$"
 #define NAME_PATTERN "^[A-Za-z]{0,20}$"
 #define SURNAME_PATTERN "[A-Za-z]{0,80}"

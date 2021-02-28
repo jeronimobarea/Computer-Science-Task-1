@@ -13,15 +13,11 @@ struct ProgramData setup() {
     struct Vaccine vaccines[MAX_VACCINES];
     setup_vaccines(vaccines);
 
-    //struct Patient patients[MAX_PATIENTS];
-    //load_patients(patients);
-
     printf("\n\nEverything loaded...\n");
 
     struct ProgramData data = {
             .populations = *populations,
             .vaccines = *vaccines,
-            //.patients = *patients,
     };
 
     return data;
