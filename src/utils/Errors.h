@@ -7,5 +7,6 @@
 
 #define MENU_SELECTION_ERROR "[Error] The selection could not be satisfied"
 #define FILE_ERROR "[Error] Could not open the file"
+#define SAVE_STATE_ERROR "[Error] Could not save the state"
 
 #endif //TASK1_ERRORS_H

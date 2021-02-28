@@ -15,7 +15,7 @@ struct MenuSelection {
     bool is_valid;
 };
 
-struct MenuSelection menu();
+struct MenuSelection menu(struct ProgramData data);
 
 bool selection_is_valid(int selection);
 

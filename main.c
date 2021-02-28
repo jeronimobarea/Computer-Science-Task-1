@@ -3,6 +3,6 @@
 
 int main() {
     struct ProgramData data = setup();
-    struct MenuSelection selection = menu();
+    struct MenuSelection selection = menu(data);
     process_selection(selection.selected, data);
 }

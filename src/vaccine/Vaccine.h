@@ -19,4 +19,8 @@ struct Vaccine {
 
 void setup_vaccines(struct Vaccine *vaccines);
 
+void insert_inoculation(char **inoculations, char *file_path);
+
+void delete_inoculation(char **inoculations, char *file_path);
+
 #endif //TASK1_VACCINE_H

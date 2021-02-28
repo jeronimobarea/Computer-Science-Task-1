@@ -24,12 +24,12 @@ struct Patient {
     char **taken_vaccines; // Max 3 different vaccines
 };
 
-void load_patients(struct Patient *pattients);
+void load_patients(struct Patient *patients, char *file_path);
 
 char **load_patients_vaccines(char *patient_dni);
 
-void insert_patient();
+void insert_patient(struct Patient *patients, char *file_path);
 
-void delete_patient(char *patient_dni);
+void delete_patient(struct Patient *patients, char *file_path);
 
 #endif //TASK1_PATIENT_H

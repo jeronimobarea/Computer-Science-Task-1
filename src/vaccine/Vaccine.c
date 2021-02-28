@@ -28,3 +28,11 @@ void setup_vaccines(struct Vaccine *vaccines) {
     }
     free(output);
 }
+
+void insert_inoculation(char **inoculations, char *file_path) {
+
+}
+
+void delete_inoculation(char **inoculations, char *file_path) {
+
+}

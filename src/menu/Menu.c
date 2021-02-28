@@ -5,7 +5,7 @@
 #include "Menu.h"
 #include "Actions.h"
 
-struct MenuSelection menu() {
+struct MenuSelection menu(struct ProgramData data) {
     struct MenuSelection selection;
     printf(
             "\n1) Dar de alta (paciente)\n"
@@ -22,7 +22,9 @@ struct MenuSelection menu() {
     selection.is_valid = selection_is_valid(selection.selected);
 
     if (!selection.is_valid) {
-        selection = menu();
+        selection = menu(data);
+    } else {
+        process_selection(selection.selected, data);
     }
     return selection;
 }
@@ -35,31 +37,31 @@ bool selection_is_valid(int selection) {
 }
 
 void process_selection(int selection, struct ProgramData data) {
-    printf("Selected: %d", selection);
     switch (selection) {
         case 1:
-            insert_patient_action();
+            insert_patient_action(data.patients);
             break;
         case 2:
-            delete_patient_action();
+            delete_patient_action(data.patients);
             break;
         case 3:
-            insert_inoculation_action();
+            insert_inoculation_action(data.inoculations);
             break;
         case 4:
-            delete_inoculation_action();
+            delete_inoculation_action(data.inoculations);
             break;
         case 5:
-            save_state_action();
+            save_state_action(data);
             break;
         case 6:
-            load_state_action();
+            load_state_action(data);
             break;
         case 7:
-            list_vaccination_data_action();
+            list_vaccination_data_action(data);
             break;
         default:
             perror(MENU_SELECTION_ERROR);
             break;
     }
+    menu(data);
 }

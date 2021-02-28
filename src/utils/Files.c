@@ -86,3 +86,18 @@ char **str_split(char *a_str, const char a_delim) {
 
     return result;
 }
+
+void save_state(char **data, char *filename) {
+    FILE *fp;
+
+    fopen_s(&fp, filename, "w");
+
+    if (fp == NULL) {
+        perror(SAVE_STATE_ERROR);
+        return;
+    }
+    for (int i = 0; i < sizeof(data); ++i) {
+        fprintf(fp, "%s", data[i]);
+    }
+    fclose(fp);
+}
