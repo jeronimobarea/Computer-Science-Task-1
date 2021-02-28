@@ -37,21 +37,57 @@ void process_selection(int selection) {
     printf("Selected: %d", selection);
     switch (selection) {
         case 1:
+            insert_patient();
             break;
         case 2:
+            delete_patient();
             break;
         case 3:
+            insert_inoculation();
             break;
         case 4:
+            delete_inoculation();
             break;
         case 5:
+            save_state();
             break;
         case 6:
+            load_state();
             break;
         case 7:
+            list_vaccination_data();
             break;
         default:
             perror(MENU_SELECTION_ERROR);
             break;
     }
+}
+
+void insert_patient() {
+}
+
+void delete_patient() {
+    char *dni;
+    printf("DNI del paciente: ");
+    scanf_s("%s", &dni);
+}
+
+void insert_inoculation() {
+
+}
+
+void delete_inoculation() {
+
+}
+
+void save_state() {
+
+}
+
+void load_state() {
+
+}
+
+void list_vaccination_data() {
+
 }

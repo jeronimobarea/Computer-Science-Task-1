@@ -4,14 +4,27 @@
 
 #include "Setup.h"
 
+#include "../program/Program.h"
 #include "../population/Population.h"
 #include "../patient/Patient.h"
-#include "../vaccine/Vaccine.h"
 
-void setup() {
+struct ProgramData setup() {
+    struct Population populations[MAX_POPULATIONS];
+    load_populations(populations);
+
     struct Vaccine vaccines[MAX_VACCINES];
     setup_vaccines(vaccines);
 
-    struct Population populations[MAX_POPULATIONS];
-    load_populations(populations);
+    struct Patient patients[MAX_PATIENTS];
+    load_patients(patients);
+
+    printf("\n\nEverything loaded...\n\n");
+
+    struct ProgramData data = {
+            .populations = populations,
+            .vaccines = vaccines,
+            .patients = patients,
+    };
+
+    return data;
 }

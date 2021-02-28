@@ -10,10 +10,11 @@
 
 #define POPULATION_DATASET_PATH "C:\\Users\\jeron\\CLionProjects\\Task1\\datasets\\static\\populations.txt"
 #define MAX_POPULATIONS 10
+#define POPULATION_DELIMITER ' '
 
 struct Population {
     int id;
-    char description;
+    char *description;
     int start;
     int ends;
 };

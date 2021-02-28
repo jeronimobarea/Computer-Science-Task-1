@@ -7,18 +7,24 @@
 
 
 void load_populations(struct Population *populations) {
-    char output[MAX_POPULATIONS][MAX_FILE_LINE_LENGTH];
-    read_file(POPULATION_DATASET_PATH, output, MAX_POPULATIONS);
+    char **output = read_file(POPULATION_DATASET_PATH);
 
-    for (int i = 0; i < MAX_POPULATIONS; ++i) {
-        char data[3][MAX_FILE_LINE_LENGTH];
-        split_str(output[i], '\0', data);
-        struct Population population = {
-                .id = i,
-                .description = *data[0],
-                .start = 1,
-                .ends = 1,
-        };
-        populations[i] = population;
+    for (int i = 0; *(output + i); ++i) {
+        char **tokens;
+        printf("\npopulation=[%s]", *(output + i));
+        tokens = str_split(*(output + i), POPULATION_DELIMITER);
+
+        if (tokens) {
+            struct Population population = {
+                    .id = i,
+                    .description = *(tokens + 0),
+                    .start = atoi(*(tokens + 1)),
+                    .ends = atoi(*(tokens + 2)),
+            };
+            populations[i] = population;
+        }
+        free(*(output + i));
+        free(tokens);
     }
+    free(output);
 }

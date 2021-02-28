@@ -8,14 +8,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 
 #include "../utils/Errors.h"
 #include "../utils/Debug.h"
 
-#define MAX_FILE_LINE_LENGTH 50
+#define MAX_FILE_LINE_LENGTH 150
 
-void read_file(char *filename, char output[][MAX_FILE_LINE_LENGTH], int row_count);
+char **read_file(char *filename);
 
-void split_str(char *data, char delimiter, char output[][MAX_FILE_LINE_LENGTH]);
+char **str_split(char *a_str, const char a_delim);
 
 #endif //TASK1_FILES_H

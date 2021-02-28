@@ -15,4 +15,9 @@ add_executable(Task1 main.c
         src/utils/Files.c
         src/utils/Files.h
         src/utils/Setup.c
-        src/utils/Setup.h src/utils/Errors.h src/utils/Debug.h)
+        src/utils/Setup.h
+        src/utils/Errors.h
+        src/utils/Debug.h
+        src/utils/Validators.c
+        src/utils/Validators.h
+        src/program/Program.h)
