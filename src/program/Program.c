@@ -26,6 +26,7 @@ void save_current_state(struct ProgramData data) {
                  vaccine.aproval_date, vaccine.batch);
         *(processed_vaccines + i) = buf;
     }
+
     for (int i = 0; i < sizeof(data.patients); ++i) {
         struct Patient patient = data.patients[i];
         char buf[MAX_FILE_LINE_LENGTH];
@@ -33,6 +34,7 @@ void save_current_state(struct ProgramData data) {
                  patient.date_of_birth, patient.population_id);
         *(processed_patients + i) = buf;
     }
+
     for (int i = 0; i < sizeof(data.inoculations); ++i) {
         *(processed_inoculations + i) = data.inoculations[i];
     }
@@ -44,11 +46,8 @@ void save_current_state(struct ProgramData data) {
 }
 
 void load_state(struct ProgramData data, char *path) {
-    struct Population populations[MAX_POPULATIONS];
-    load_populations(populations);
-
-    struct Vaccine vaccines[MAX_VACCINES];
-    setup_vaccines(vaccines);
+    load_populations(data.populations);
+    setup_vaccines(data.vaccines);
 }
 
 void list_data(struct ProgramData data) {
