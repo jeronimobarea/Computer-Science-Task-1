@@ -51,5 +51,17 @@ void load_state(struct ProgramData data, char *path) {
 }
 
 void list_data(struct ProgramData data) {
+    for (int i = 0; i < sizeof(data.vaccines); ++i) {
+        if (data.vaccines[i].serial_number != NULL) {
+            printf("------------------------\n");
+            printf("%s\n", data.vaccines[i].company);
+            printf("------------------------\n");
+            printf("Serial number: %s\n", data.vaccines[i].serial_number);
+            printf("Batch: %s\n", data.vaccines[i].batch);
+            printf("Aproval date: %s\n", data.vaccines[i].aproval_date);
+        }
+    }
 
+    for (int i = 0; i < sizeof(data.inoculations); ++i)
+        printf("%s\n", data.inoculations[i]);
 }
