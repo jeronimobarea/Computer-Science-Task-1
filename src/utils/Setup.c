@@ -11,10 +11,15 @@ struct ProgramData setup() {
 
     printf("\n\nEverything loaded...\n");
 
-    struct ProgramData data = {
-            .populations = *populations,
-            .vaccines = *vaccines,
-    };
+    struct ProgramData data;
+
+    for (int i = 0; i < sizeof populations; ++i) {
+        data.populations[i] = populations[i];
+    }
+
+    for (int i = 0; i < sizeof vaccines; ++i) {
+        data.vaccines[i] = vaccines[i];
+    }
 
     return data;
 }
