@@ -2,10 +2,8 @@
 
 char **read_file(char *filename) {
     FILE *fp;
-    FILE *fp2;
 
     fopen_s(&fp, filename, "r");
-    fopen_s(&fp2, filename, "r");
 
     if (fp == NULL) {
         char **empty = 0;
@@ -15,28 +13,20 @@ char **read_file(char *filename) {
     printf(DEBUG_FILE, filename);
 
     char reader[MAX_FILE_LINE_LENGTH];
-    int size = 0;
+    char **result = malloc(sizeof(char *) * MAX_FILE_LINE_LENGTH);
+    int size = 1;
 
+    size_t idx = 0;
     while (fgets(reader, MAX_FILE_LINE_LENGTH, fp)) {
+        assert(idx < size);
+        *(result + idx++) = strdup(reader);
         ++size;
     }
+    assert(idx == size - 1);
+    *(result + idx) = 0;
 
-    char **result = 0;
-    ++size;
-    result = malloc(sizeof(char *) * size);
-
-    if (result) {
-        char reader_tmp[MAX_FILE_LINE_LENGTH];
-        size_t idx = 0;
-        while (fgets(reader_tmp, MAX_FILE_LINE_LENGTH, fp2)) {
-            assert(idx < size);
-            *(result + idx++) = strdup(reader_tmp);
-        }
-        assert(idx == size - 1);
-        *(result + idx) = 0;
-    }
+    result = realloc(result, idx);
     fclose(fp);
-    fclose(fp2);
     return result;
 }
 
